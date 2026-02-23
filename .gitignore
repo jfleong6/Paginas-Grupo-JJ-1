@@ -1,0 +1,29 @@
+visionU/routes/__pycache__/preview_routes.cpython-313.pyc
+visionU/config/__pycache__/config_manager.cpython-313.pyc
+> git push origin main:main
+remote: error: GH013: Repository rule violations found for refs/heads/main.        
+remote: 
+remote: - GITHUB PUSH PROTECTION        
+remote:   —————————————————————————————————————————        
+remote:     Resolve the following violations before pushing again        
+remote: 
+remote:     - Push cannot contain secrets        
+remote: 
+remote:             
+remote:      (?) Learn how to resolve a blocked push        
+remote:      https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push        
+remote:             
+remote:             
+remote:       —— Mapbox Secret Access Token ————————————————————————        
+remote:        locations:        
+remote:          - commit: e2b86b72a1b4d75350969a64f91bc16b93320b27        
+remote:            path: guiaTuristica/public/index.html:514        
+remote:             
+remote:        (?) To push, remove secret from commit(s) or follow this URL to allow the secret.        
+remote:        https://github.com/jfleong6/Paginas-Grupo-JJ/security/secret-scanning/unblock-secret/39coTBYEbomECMVdFP0Zva4HznL        
+remote:             
+remote: 
+remote: 
+To https://github.com/jfleong6/Paginas-Grupo-JJ.git
+ ! [remote rejected] main -> main (push declined due to repository rule violations)
+error: failed to push some refs to 'https://github.com/jfleong6/Paginas-Grupo-JJ.git'

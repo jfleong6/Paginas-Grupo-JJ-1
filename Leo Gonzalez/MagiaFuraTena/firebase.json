@@ -1,0 +1,25 @@
+{
+  "hosting": {
+    "site": "asociacionmagiafuraytena",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+<<<<<<< HEAD
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(webp|mp4|svg|css|js)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000"
+          }
+        ]
+      }
+=======
+>>>>>>> bcaf3967527d6f5b9f523d53a61c5797f14e9d6e
+    ]
+  }
+}

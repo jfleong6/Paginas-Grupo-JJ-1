@@ -1,0 +1,23 @@
+{
+  "projects": {
+    "default": "lego-tech"
+  },
+  "targets": {
+    "lego-tech": {
+      "hosting": {
+<<<<<<< HEAD
+        "lego-tech-target": [
+=======
+        "lego-app": [
+>>>>>>> bcaf3967527d6f5b9f523d53a61c5797f14e9d6e
+          "lego-tech"
+        ]
+      }
+    }
+<<<<<<< HEAD
+  },
+  "etags": {}
+=======
+  }
+>>>>>>> bcaf3967527d6f5b9f523d53a61c5797f14e9d6e
+}

@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "lego-tech",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

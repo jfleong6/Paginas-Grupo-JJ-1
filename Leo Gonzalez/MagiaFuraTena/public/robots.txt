@@ -1,0 +1,10 @@
+# Robots.txt para Asociacion Magia Fura y Tena
+User-agent: *
+Allow: /
+
+# Permitir el rastreo de imágenes y videos
+Allow: /img/
+Allow: /videos/
+
+# Indicar la ubicación del Sitemap
+Sitemap: https://asociacionmagiafuraytena.org/sitemap.xml

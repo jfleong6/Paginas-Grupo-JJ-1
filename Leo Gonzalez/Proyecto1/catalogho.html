@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revista Digital - Ing. Jhon Leon</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        #revista {
+            width: 90%;
+            max-width: 1000px;
+            height: 80vh;
+            display: flex;
+            gap: 5px;
+            perspective: 1500px;
+        }
+
+        .seccion {
+            position: relative;
+            width: 50%;
+            height: 100%;
+        }
+
+        /* Estilo base de cada página */
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Página activa: visible y al frente */
+        .page.active {
+            opacity: 1;
+            pointer-events: auto;
+            z-index: 10;
+        }
+
+        /* Estética de las páginas */
+        .page:nth-child(odd) { background: #fff; border-radius: 0 10px 10px 0; border-left: 1px solid #ddd; }
+        .page:nth-child(even) { background: #fafafa; border-radius: 10px 0 0 10px; border-right: 1px solid #ddd; }
+
+        .portada { background: linear-gradient(135deg, #1e3a8a, #3b82f6) !important; color: white; }
+        
+        /* Controles */
+        .controles {
+            position: fixed;
+            bottom: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        button:hover { background: #666; }
+    </style>
+</head>
+<body>
+
+    <div id="revista">
+        <section class="seccion" id="lado-izquierdo">
+            <div class="page active portada">Lado Posterior Portada</div>
+            <div class="page">Página 2: Proyectos Python</div>
+            <div class="page">Página 4: Firebase Auth</div>
+            <div class="page">Página 6: Ingeniería Electrónica</div>
+        </section>
+
+        <section class="seccion" id="lado-derecho">
+            <div class="page active portada"><h1>ING. JHON LEON</h1><p>Revista de Proyectos</p></div>
+            <div class="page">Página 3: Automatización</div>
+            <div class="page">Página 5: Cloud Functions</div>
+            <div class="page">Página 7: ESP32-CAM Project</div>
+        </section>
+    </div>
+
+    <div class="controles">
+        <button onclick="navegar(-1)">Anterior</button>
+        <button onclick="navegar(1)">Siguiente</button>
+    </div>
+
+    <script>
+        let indexActual = 0;
+        const paginasIzquierdas = document.querySelectorAll('#lado-izquierdo .page');
+        const paginasDerechas = document.querySelectorAll('#lado-derecho .page');
+        const totalPares = paginasIzquierdas.length;
+
+        function navegar(direccion) {
+            // Calculamos el nuevo índice
+            let nuevoIndex = indexActual + direccion;
+
+            // Validamos límites (Ingeniería básica: no salirse del array)
+            if (nuevoIndex >= 0 && nuevoIndex < totalPares) {
+                // Quitamos 'active' de las actuales
+                paginasIzquierdas[indexActual].classList.remove('active');
+                paginasDerechas[indexActual].classList.remove('active');
+
+                // Actualizamos el índice
+                indexActual = nuevoIndex;
+
+                // Ponemos 'active' en las nuevas
+                paginasIzquierdas[indexActual].classList.add('active');
+                paginasDerechas[indexActual].classList.add('active');
+            }
+        }
+
+        // Bonus: Control por teclado
+        window.addEventListener('keydown', (e) => {
+            if (e.key === "ArrowRight") navegar(1);
+            if (e.key === "ArrowLeft") navegar(-1);
+        });
+    </script>
+</body>
+</html>
